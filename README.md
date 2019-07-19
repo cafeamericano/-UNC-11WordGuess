@@ -1,1 +1,1 @@
-# -UNC-11WordGuess
+# UNC-11WordGuess
