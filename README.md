@@ -12,7 +12,9 @@ This application is a word guess game that utilizes NodeJS. Users may guess char
 
 ![demo](demo.png)
 
-![demo](videoDemo.mov)
+<video width="320" height="240" controls>
+    <source src="videoDemo.mov" type="video/mp4">
+</video>
 
 The screenshot above shows a game from start to finish. Users are alerted of correct submissions, incorrect submissions, and once the game has ended.
 __________________________________________________________________________________
