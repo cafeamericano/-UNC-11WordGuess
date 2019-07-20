@@ -10,9 +10,7 @@ This application is a word guess game that utilizes NodeJS. Users may guess char
 ### Begin a Game
 > node index.js 
 
-![demo](demo.png)
-
-![demo](videoDemo.MOV)
+![demo](wordGuess.gif)
 
 The screenshot above shows a game from start to finish. Users are alerted of correct submissions, incorrect submissions, and once the game has ended.
 __________________________________________________________________________________
