@@ -28,8 +28,9 @@ function prepareGame() {
     winningWord = new MagicWord(randomizedWord)
     //Split up the winning word into letter objects
     winningWord.splitWord()
-    //Show the user the blank spaces
+    //Show the user the blank spaces for the first instance
     winningWord.showCurrent()
+    console.log('\n')
 }
 
 function testAndReward(input) {
@@ -94,7 +95,6 @@ function play() {
 console.log(chalk.cyan.bold(`\n *** WELCOME TO THE WORD GUESS GAME!!! *** \n`))
 console.log(chalk.cyan(`You have been tasked with guessing a random word.\nEnter letters to see if you have a match.\nUp to ${remainingTurns} incorrect guesses may be made before the game is lost.\n`))
 prepareGame()
-console.log('\n')
 play()
 
 

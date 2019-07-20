@@ -19,11 +19,7 @@ function Word(secretWord) {
     this.showCurrent = function () {
         let presentation = '';
         for (var i = 0; i < secretWord.length; i++) {
-            if (this.allLetters[i].guessedCorrectly) {
-                presentation += (this.allLetters[i].letter + ' ')
-            } else {
-                presentation += ('_ ')
-            }
+            presentation += (this.allLetters[i].reveal() + ' ')
         }
         console.log(chalk.cyan.bold(presentation))
     }
