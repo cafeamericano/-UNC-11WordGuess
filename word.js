@@ -1,4 +1,5 @@
 var MagicLetter = require('./letter.js')
+const chalk = require('chalk');
 
 ///////////////////////////////////////////////////////
 
@@ -15,20 +16,20 @@ function Word(secretWord) {
     }
 
     //Function to show the word including revealed and hidden characters
-    this.showCurrent = function() {
+    this.showCurrent = function () {
         let presentation = '';
         for (var i = 0; i < secretWord.length; i++) {
             if (this.allLetters[i].guessedCorrectly) {
-                presentation += (this.allLetters[i].letter)
+                presentation += (this.allLetters[i].letter + ' ')
             } else {
-                presentation += ('_')
+                presentation += ('_ ')
             }
         }
-        console.log(presentation)
+        console.log(chalk.cyan.bold(presentation))
     }
 
     //Function to see if a guessed letter is correct
-    this.runTest = function(input) {
+    this.runTest = function (input) {
 
         //Establish a way to keep track of whether the user guessed one correctly
         let accuracyCount = 0;
@@ -37,21 +38,34 @@ function Word(secretWord) {
         for (var i = 0; i < secretWord.length; i++) {
             let individualLetter = this.allLetters[i].testItem(input)
             if (individualLetter === 1) {
-                accuracyCount +=1
+                accuracyCount += 1
             }
         }
+
         //Show current status every time a submission is given
         this.showCurrent()
 
         //If the tested letter wasn't there, take away a turn
         if (accuracyCount === 0) {
-            console.log('The provided letter was not a match.')
+            console.log(chalk.red(`The provided letter (${input}) was not a match.`))
             return 0
         } else {
-            console.log('The provided letter was a match!')
+            console.log(chalk.green(`The provided letter (${input}) was a match!`))
             return 1
         }
     }
+
+    this.checkGuessedCount = function () {
+        let guessedCount = 0;
+        for (var i = 0; i < secretWord.length; i++) {
+            let guessed = this.allLetters[i].guessedCorrectly
+            if (guessed === true) {
+                guessedCount += 1
+            }
+        }
+        return guessedCount
+    };
+
 }
 
 ///////////////////////////////////////////////////////
