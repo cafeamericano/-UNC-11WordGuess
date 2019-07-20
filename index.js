@@ -1,22 +1,24 @@
+//Requirements/////////////////////////////////////////////////////
+
 var inquirer = require("inquirer");
 const chalk = require('chalk');
 let MagicWord = require('./word.js')
 
-///////////////////////////////////////////////////////
+//Game Object/////////////////////////////////////////////////////
 
 let game = {
     isOver: false
 }
 
-///////////////////////////////////////////////////////
+//Global Variables/////////////////////////////////////////////////////
 
-let remainingTurns = 3;
-let listOfWords = ['apple', 'orange', 'taco']
+let remainingTurns = 5;
+let listOfWords = ['apple', 'orange', 'taco', 'candy', 'banana', 'pineapple', 'kiwi', 'blueberry', 'raspberry', 'blackberry', 'mango']
 let randomIndex = Math.floor(Math.random() * listOfWords.length);
 let randomizedWord = listOfWords[randomIndex]
 let winningWord = new MagicWord(randomizedWord)
 
-///////////////////////////////////////////////////////
+//Functions/////////////////////////////////////////////////////
 
 function testAndReward(input) {
 
@@ -60,22 +62,16 @@ function play() {
     }
 }
 
-///////////////////////////////////////////////////////
+//Prepare the word///////////////////////////////////////////////////////
 
-//Prepare the word
 winningWord.splitWord()
 
-///////////////////////////////////////////////////////
-
-//Run program
+//Run program///////////////////////////////////////////////////////
 
 console.log(chalk.cyan.bold(`\n *** WELCOME TO THE WORD GUESS GAME!!! *** \n`))
-
 console.log(chalk.cyan(`You have been tasked with guessing a random word. Enter letters to see if you have a match. Up to ${remainingTurns} incorrect guesses may be made before the game is lost. \n`))
-
 play()
 
-///////////////////////////////////////////////////////
 
 
 
