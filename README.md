@@ -12,14 +12,9 @@ This application is a word guess game that utilizes NodeJS. Users may guess char
 
 ![demo](wordGuess.gif)
 
-The screenshot above shows a game from start to finish. Users are alerted of correct submissions, incorrect submissions, and once the game has ended.
+The GIF above shows a game from start to finish. Users are alerted of correct submissions, incorrect submissions, and once the game has ended.
 __________________________________________________________________________________
 
 ### Technologies Used
 
 This application is built on NodeJS. NPM packages utilized include Inquirer (for accepting user input) and Chalk (for formatting text output to the console).
-
-### Other Notes
-
-A video demonstration can be found at:
-https://github.com/cafeamericano/UNC-11WordGuess/blob/master/videoDemo.mov
