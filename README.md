@@ -17,7 +17,7 @@ ________________________________________________________________________________
 
 ### Technologies Used
 
-abc
+NPM packages utilized include Inquirer (for accepting user input) and Chalk (for formatting text output to the console).
 
 ### Other Notes
 

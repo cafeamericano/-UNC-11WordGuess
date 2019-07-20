@@ -14,11 +14,23 @@ let game = {
 
 let remainingTurns = 5;
 let listOfWords = ['apple', 'orange', 'taco', 'candy', 'banana', 'pineapple', 'kiwi', 'blueberry', 'raspberry', 'blackberry', 'mango']
-let randomIndex = Math.floor(Math.random() * listOfWords.length);
-let randomizedWord = listOfWords[randomIndex]
-let winningWord = new MagicWord(randomizedWord)
+let randomIndex = 0
+let randomizedWord = ''
+let winningWord = ''
 
 //Functions/////////////////////////////////////////////////////
+
+function prepareGame() {
+    game.isOver = false;
+    remainingTurns = 5;
+    randomIndex = Math.floor(Math.random() * listOfWords.length);
+    randomizedWord = listOfWords[randomIndex]
+    winningWord = new MagicWord(randomizedWord)
+    //Split up the winning word into letter objects
+    winningWord.splitWord()
+    //Show the user the blank spaces
+    winningWord.showCurrent()
+}
 
 function testAndReward(input) {
 
@@ -34,7 +46,6 @@ function testAndReward(input) {
     if (remainingTurns <= 0) {
         game.isOver = true;
         console.log(chalk.red.bold.underline('You have ran out of guesses! Game over.\n'))
-        process.exit()
     }
 
     //Check if game has been won
@@ -42,7 +53,6 @@ function testAndReward(input) {
     if (guessedCount === randomizedWord.length) {
         game.isOver = true;
         console.log(chalk.green.bold.underline('You have won the game!\n'))
-        process.exit()
     }
 
 }
@@ -59,18 +69,31 @@ function play() {
             testAndReward(answers.askForCharacter)
             play()
         });
+    } else if (game.isOver === true) {
+        inquirer.prompt([
+            {
+                type: "confirm",
+                name: "playAgain",
+                message: "Would you like to play again?"
+            }
+        ]).then(function (response) {
+            if (response.playAgain === true) {
+                console.log('\n')
+                prepareGame()
+                play()
+            } else {
+                console.log('\nGoodbye.\n')
+                process.exit()
+            }
+        });
     }
 }
-
-//Prepare the word///////////////////////////////////////////////////////
-
-winningWord.splitWord()
 
 //Run program///////////////////////////////////////////////////////
 
 console.log(chalk.cyan.bold(`\n *** WELCOME TO THE WORD GUESS GAME!!! *** \n`))
 console.log(chalk.cyan(`You have been tasked with guessing a random word.\nEnter letters to see if you have a match.\nUp to ${remainingTurns} incorrect guesses may be made before the game is lost.\n`))
-winningWord.showCurrent()
+prepareGame()
 console.log('\n')
 play()
 
