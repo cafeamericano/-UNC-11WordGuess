@@ -21,3 +21,5 @@ This application is built on NodeJS. NPM packages utilized include Inquirer (for
 
 ### Other Notes
 
+A video demonstration can be found at:
+https://github.com/cafeamericano/UNC-11WordGuess/blob/master/videoDemo.mov
