@@ -25,7 +25,7 @@ function testAndReward(input) {
     //Notify if turn count decreased
     if (winningWord.runTest(input) === 0) {
         remainingTurns -= 1;
-        console.log('Remaining guesses: ' + remainingTurns + '\n')
+        console.log('Remaining incorrect guesses: ' + remainingTurns + '\n')
     } else {
         console.log('\n')
     }
@@ -69,7 +69,9 @@ winningWord.splitWord()
 //Run program///////////////////////////////////////////////////////
 
 console.log(chalk.cyan.bold(`\n *** WELCOME TO THE WORD GUESS GAME!!! *** \n`))
-console.log(chalk.cyan(`You have been tasked with guessing a random word. Enter letters to see if you have a match. Up to ${remainingTurns} incorrect guesses may be made before the game is lost. \n`))
+console.log(chalk.cyan(`You have been tasked with guessing a random word.\nEnter letters to see if you have a match.\nUp to ${remainingTurns} incorrect guesses may be made before the game is lost.\n`))
+winningWord.showCurrent()
+console.log('\n')
 play()
 
 
