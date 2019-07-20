@@ -1,9 +1,17 @@
 let MagicWord = require('./word.js')
 
-let testWord = new MagicWord('Donkey')
+///////////////////////////////////////////////////////
 
-testWord.splitWord()
-testWord.runTest('o')
-testWord.runTest('k')
-testWord.runTest('e')
-testWord.showCurrent()
+let listOfWords = ['apple', 'orange', 'taco']
+let randomIndex = Math.floor(Math.random() * listOfWords.length);
+let winningWord = new MagicWord(listOfWords[randomIndex])
+
+//Prepare the word
+winningWord.splitWord()
+
+//Run program
+winningWord.runTest('o')
+winningWord.runTest('k')
+winningWord.runTest('e')
+winningWord.runTest('b')
+
